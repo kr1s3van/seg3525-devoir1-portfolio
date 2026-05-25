@@ -1,0 +1,121 @@
+/* --- 1. Importation des polices (Ajout IBM Plex) --- */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=Poppins:wght@700&family=Inter:wght@400;500&display=swap');
+
+:root {
+    --bg-beige: #fdfaf5;       
+    --baby-blue: #bde0fe;      
+    --pastel-violet: #decaff;   
+    --text-dark: #2d3436;
+    --white: #ffffff;
+}
+
+/* Base & Scroll Apple */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    background-color: var(--bg-beige);
+    color: var(--text-dark);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .navbar-brand {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+
+/* ANIMATION REVEAL */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Barre de Navigation */
+.navbar {
+    background-color: rgba(253, 250, 245, 0.8) !important;
+    backdrop-filter: blur(15px); 
+    border-bottom: 2px solid var(--baby-blue);
+    padding: 15px 0; 
+}
+
+.nav-link {
+    color: var(--text-dark) !important;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--pastel-violet) !important;
+}
+
+/* Section Hero */
+.hero {
+    padding: 180px 0 100px;
+    background: linear-gradient(180deg, var(--baby-blue) 0%, var(--bg-beige) 100%);
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+hr.bg-primary {
+    background-color: var(--pastel-violet) !important;
+    height: 4px;
+    opacity: 1;
+    border-radius: 10px;
+}
+
+/* Section Travail */
+.section-title {
+    color: var(--text-dark);
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--pastel-violet);
+    margin: 15px auto 0;
+    border-radius: 10px;
+}
+
+/* Cartes */
+.card {
+    border: none;
+    border-radius: 25px; 
+    background: var(--white);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    border-bottom: 6px solid var(--baby-blue); 
+    overflow: hidden; /* Pour que les images ne dépassent pas des coins arrondis */
+}
+
+.card:hover {
+    transform: scale(1.05);
+    border-bottom-color: var(--pastel-violet); 
+    box-shadow: 0 20px 40px rgba(189, 224, 254, 0.4) !important;
+}
+
+.card-img-top {
+    border-radius: 25px 25px 0 0;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Footer */
+footer {
+    background-color: var(--text-dark);
+    color: var(--white);
+    border-radius: 40px 40px 0 0;
+}

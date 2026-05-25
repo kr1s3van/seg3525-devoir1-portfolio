@@ -113,6 +113,11 @@ hr.bg-primary {
     object-fit: cover;
 }
 
+.method-card p {
+    font-size: 1.05rem; 
+    line-height: 1.6;   
+}
+
 /* Footer */
 footer {
     background-color: var(--text-dark);

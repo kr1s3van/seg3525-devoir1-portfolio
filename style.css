@@ -1,4 +1,4 @@
-/* --- 1. Importation des polices (Ajout IBM Plex) --- */
+/* --- 1. Importation des polices --- */
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=Poppins:wght@700&family=Inter:wght@400;500&display=swap');
 
 :root {
@@ -19,6 +19,7 @@ body {
     background-color: var(--bg-beige);
     color: var(--text-dark);
     overflow-x: hidden;
+    margin: 0;
 }
 
 h1, h2, h3, h4, .navbar-brand {
@@ -26,7 +27,7 @@ h1, h2, h3, h4, .navbar-brand {
     font-weight: 700;
 }
 
-/* ANIMATION REVEAL */
+/* --- ANIMATION REVEAL (Apple Style) --- */
 .reveal {
     opacity: 0;
     transform: translateY(40px);
@@ -38,12 +39,13 @@ h1, h2, h3, h4, .navbar-brand {
     transform: translateY(0);
 }
 
-/* Barre de Navigation */
+/* --- Barre de Navigation --- */
 .navbar {
     background-color: rgba(253, 250, 245, 0.8) !important;
     backdrop-filter: blur(15px); 
     border-bottom: 2px solid var(--baby-blue);
-    padding: 15px 0; 
+    padding: 15px 0;
+    z-index: 1000;
 }
 
 .nav-link {
@@ -56,14 +58,26 @@ h1, h2, h3, h4, .navbar-brand {
     color: var(--pastel-violet) !important;
 }
 
-/* Section Hero */
-.hero {
-    padding: 180px 0 100px;
+/* --- LOGIQUE DE SECTIONS PLEIN ÉCRAN (100vh) --- */
+header.hero, 
+section#work, 
+section#projects {
+    min-height: 100vh;      
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;     
+    padding: 100px 20px;     
+    text-align: center;
+}
+
+/* --- Section Hero Spécifique --- */
+header.hero {
     background: linear-gradient(180deg, var(--baby-blue) 0%, var(--bg-beige) 100%);
 }
 
-.hero h1 {
-    font-size: 4rem;
+header.hero h1 {
+    font-size: 4.5rem;
     margin-bottom: 20px;
 }
 
@@ -72,12 +86,14 @@ hr.bg-primary {
     height: 4px;
     opacity: 1;
     border-radius: 10px;
+    width: 100px;
+    margin: 20px auto;
 }
 
-/* Section Travail */
+/* --- Section Titres --- */
 .section-title {
     color: var(--text-dark);
-    margin-bottom: 50px;
+    margin-bottom: 60px;
     position: relative;
 }
 
@@ -91,36 +107,39 @@ hr.bg-primary {
     border-radius: 10px;
 }
 
-/* Cartes */
-.card {
+/* --- Cartes (Méthodologie & Projets) --- */
+.card, .method-card {
     border: none;
     border-radius: 25px; 
     background: var(--white);
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     border-bottom: 6px solid var(--baby-blue); 
-    overflow: hidden; /* Pour que les images ne dépassent pas des coins arrondis */
+    overflow: hidden;
+    height: 100%;
 }
 
-.card:hover {
-    transform: scale(1.05);
+.card:hover, .method-card:hover {
+    transform: scale(1.05) translateY(-10px);
     border-bottom-color: var(--pastel-violet); 
     box-shadow: 0 20px 40px rgba(189, 224, 254, 0.4) !important;
 }
 
 .card-img-top {
     border-radius: 25px 25px 0 0;
-    height: 200px;
+    height: 220px;
     object-fit: cover;
 }
 
 .method-card p {
-    font-size: 1.05rem; 
-    line-height: 1.6;   
+    font-size: 1.1rem; 
+    line-height: 1.7;   
+    padding: 10px;
 }
 
-/* Footer */
+/* --- Footer --- */
 footer {
     background-color: var(--text-dark);
     color: var(--white);
-    border-radius: 40px 40px 0 0;
+    padding: 60px 0;
+    border-radius: 50px 50px 0 0;
 }

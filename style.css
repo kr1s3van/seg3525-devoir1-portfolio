@@ -9,9 +9,10 @@
     --white: #ffffff;
 }
 
-/* Base & Scroll Apple */
+/* --- 2. LOGIQUE DE SCROLL (LOCK & SNAP) --- */
 html {
     scroll-behavior: smooth;
+    scroll-snap-type: y mandatory; 
 }
 
 body {
@@ -20,6 +21,12 @@ body {
     color: var(--text-dark);
     overflow-x: hidden;
     margin: 0;
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
+}
+
+body::-webkit-scrollbar {
+    display: none; 
 }
 
 h1, h2, h3, h4, .navbar-brand {
@@ -27,7 +34,7 @@ h1, h2, h3, h4, .navbar-brand {
     font-weight: 700;
 }
 
-/* --- ANIMATION REVEAL (Apple Style) --- */
+/* --- 3. ANIMATION REVEAL  --- */
 .reveal {
     opacity: 0;
     transform: translateY(40px);
@@ -39,7 +46,7 @@ h1, h2, h3, h4, .navbar-brand {
     transform: translateY(0);
 }
 
-/* --- Barre de Navigation --- */
+/* --- 4. Barre de Navigation --- */
 .navbar {
     background-color: rgba(253, 250, 245, 0.8) !important;
     backdrop-filter: blur(15px); 
@@ -58,10 +65,11 @@ h1, h2, h3, h4, .navbar-brand {
     color: var(--pastel-violet) !important;
 }
 
-/* --- LOGIQUE DE SECTIONS PLEIN ÉCRAN (100vh) --- */
+/* --- 5. LOGIQUE DE SECTIONS  --- */
 header.hero, 
 section#work, 
-section#projects {
+section#projects,
+footer {
     min-height: 100vh;      
     display: flex;
     flex-direction: column;
@@ -69,9 +77,11 @@ section#projects {
     align-items: center;     
     padding: 100px 20px;     
     text-align: center;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
 }
 
-/* --- Section Hero Spécifique --- */
+/* --- 6. Section Hero Spécifique --- */
 header.hero {
     background: linear-gradient(180deg, var(--baby-blue) 0%, var(--bg-beige) 100%);
 }
@@ -90,7 +100,7 @@ hr.bg-primary {
     margin: 20px auto;
 }
 
-/* --- Section Titres --- */
+/* --- 7. Section Titres --- */
 .section-title {
     color: var(--text-dark);
     margin-bottom: 60px;
@@ -107,7 +117,7 @@ hr.bg-primary {
     border-radius: 10px;
 }
 
-/* --- Cartes (Méthodologie & Projets) --- */
+/* --- 8. CARTES & OPTIMISATION MÉTHODOLOGIE --- */
 .card, .method-card {
     border: none;
     border-radius: 25px; 
@@ -124,6 +134,12 @@ hr.bg-primary {
     box-shadow: 0 20px 40px rgba(189, 224, 254, 0.4) !important;
 }
 
+/* Effet Staggered pour combler l'espace vide (Méthodologie) */
+section#work .col-md-6.col-lg-4:nth-child(2) {
+    /* On fait descendre la carte du milieu de 60px */
+    margin-top: 60px; 
+}
+
 .card-img-top {
     border-radius: 25px 25px 0 0;
     height: 220px;
@@ -131,15 +147,17 @@ hr.bg-primary {
 }
 
 .method-card p {
-    font-size: 1.1rem; 
+    font-size: 1.15rem !important; 
     line-height: 1.7;   
-    padding: 10px;
+    padding: 20px;
+    color: #5d6467;
 }
 
-/* --- Footer --- */
+/* --- 9. Footer --- */
 footer {
     background-color: var(--text-dark);
     color: var(--white);
     padding: 60px 0;
     border-radius: 50px 50px 0 0;
+    min-height: auto; 
 }
